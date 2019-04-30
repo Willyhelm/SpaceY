@@ -1,0 +1,4 @@
+
+ifconfig eht0 192.168.4.2 netmask 255.255.255.0 broadcast 192.168.4.255
+
+route add default gw 192.168.4.254

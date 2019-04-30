@@ -1,0 +1,20 @@
+$TTL 86400
+@	IN	SOA	dns.SpaceY.it.	guglielmo_sisti.SpaceY.it (
+				2019040301	; Serial
+				108000		; Refresh
+				3600		; Retry
+				604800		; Expire
+				86400 )		; Default
+
+
+	IN	NS	dns.SpaceY.it.
+	IN	MX	50 mail.SpaceY.it.
+
+
+2	IN	PTR	dns.SpaceY.it.
+3	IN	PTR	www.SpaceY.it.
+4	IN	PTR	mail.SpaceY.it.
+
+
+254	IN	PTR	routerex.SpaceY.it.
+1	IN	PTR	routerdmz.SpaceY.it.

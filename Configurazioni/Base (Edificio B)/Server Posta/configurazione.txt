@@ -1,0 +1,88 @@
+# Installo sendmail.
+apt install sendmail
+
+
+# Configuro il file access.
+nano /etc/mail/access
+
+
+# Togliere il commento ("#") a:
+Connect:192.168
+GreetPause:192.168
+ClientRate:192.168
+ClientConn:192.168
+
+
+# Infondo scrivo le regole di ricezione, inoltro e invio.
+FREE.STEALTH.MAILER@    550 Non accettiamo spam
+SpaceY.it           	RELAY
+192.168                 RELAY
+
+
+# Creo gli aliases.
+nano /etc/mail/aliases
+
+postmaster: guglielmo
+admin: guglielmo
+dmz: admindmz
+edificio_A: adminedificio_A
+edificio_B: adminedificio_B
+edificio_C: adminedificio_C
+edificio_D: adminedificio_D
+admindmz: guglielmo
+adminedificio_A: guglielmo
+adminedificio_B: guglielmo
+adminedificio_C: guglielmo
+adminedificio_D: guglielmo
+
+
+# ConfigurO il file local-host-names per indicare a sendmail per quali domini ricevere la posta.
+nano /etc/mail/local-host-names
+
+localhost
+dns.SpaceY.it
+mail.SpaceY.it
+SpaceY.it
+dmz.SpaceY.it
+edificio_A.SpaceY.it
+edificio_B.SpaceY.it
+edificio_C.SpaceY.it
+edificio_D.SpaceY.it
+
+
+# Modifico il file di configurazione.
+nano /etc/mail/sendmail.mc
+
+# Cerco ora la riga "DAEMON_OPTIONS('Family=inet, Name=MTA-v4, Port=smtp, Addr=127.0.0.1')dnl".
+DAEMON_OPTIONS(`Family=inet,  Name=MTA-v4, Port=smtp')dnl
+
+# Dopo l'ultimo include del file aggiungiamo FEATURE per permettere ad ogni host di fare l'inoltro.
+FEATURE(`relay_entire_domain')dnl
+
+
+# Creo qualche utente per le mail.
+useradd --create-home -s /sbin/nologin guglielmo; passwd guglielmo
+useradd --create-home -s /sbin/nologin generico; passwd generico
+
+
+# Mappiamo ora gli indirizzi email con le mailbox reali.
+nano /etc/mail/virtusertable
+root@SpaceY.it root
+postmaster@SpaceY.it postmaster
+admin@SpaceY.it admin
+dmz@SpaceY.it dmz
+edificio_A@SpaceY.it edificio_A
+edificio_B@SpaceY.it edificio_B
+edificio_C@SpaceY.it edificio_C
+edificio_D@SpaceY.it edificio_D
+guglielmo@SpaceY.it guglielmo
+generico@SpaceY.it generico
+
+
+# Eseguo "make" per aggiornare i database.
+cd /etc/mail
+make
+
+
+# Riavvio sendmail.
+service sendmail restart

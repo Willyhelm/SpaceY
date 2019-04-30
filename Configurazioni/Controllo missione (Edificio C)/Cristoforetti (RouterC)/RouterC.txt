@@ -1,0 +1,39 @@
+#Configurazione interfacce
+#interfaccia interna
+
+conf t
+interface fa0/0
+ip address 192.168.4.254 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/0
+router ospf 1
+network 192.168.4.0 0.0.0.255 area 4
+end
+
+#interfaccia verso Buzz (router B)
+conf t
+interface fa0/1
+ip address 192.168.14.42 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/1
+router ospf 1
+network 192.168.14.0 0.0.0.255 area 0
+end
+
+#interfaccia verso Dawn (router D)
+conf t
+interface fa1/1
+ip address 192.168.16.43 255.255.255.0
+no shutdown
+
+conf t
+interface fa1/1
+router ospf 1
+network 192.168.16.0 0.0.0.255 area 0
+end
+
+wr mem

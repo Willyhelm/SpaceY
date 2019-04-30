@@ -1,0 +1,5 @@
+﻿#DIRECTORY = /etc/host.allow
+
+ALL: .SpaceY.it EXCEPT in.telnetd
+
+//accettiamo tutti gli appartenenti al dominio SpaceY ad eccezione di quelli che si connettono tramite il protocollo telnet perchè non sicuro

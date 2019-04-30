@@ -1,0 +1,28 @@
+#Configurazione interfacce
+#Interfaccia interna
+
+conf t
+interface fa0/0
+ip address 192.168.5.254 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/0
+router ospf 1
+network 192.168.5.0 0.0.0.255 area 5
+end
+
+#Interfaccia esterna
+
+conf t
+interface fa0/1
+ip address 192.168.15.52 255.255.255.0
+no shutdown
+
+conf t
+interface 0/1
+router ospf 1
+network 192.168.15.0 0.0.0.255 area 15
+end
+
+wr mem

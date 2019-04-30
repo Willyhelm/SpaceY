@@ -1,0 +1,13 @@
+service ftp {
+      socket_type = stream			#socket usato (stream,dgram)
+      disable = no
+      flags = REUSE
+      wait = no
+      user = root				#privilegi del servizio (utente,root)
+      server = /usr/sbin/in.ftpd		#file binario del server
+      server_args = -1 -a			#argomenti passati al programma server
+      log_on_failure += USERID			#informazioni mostrate nel log in caso di fallimento
+      log_on_success += PID HOST EXIT		#informazioni mostrate nel log in caso di successo
+}
+
+//attraverso xinetd controlliamo ftp che non viene disabilitato

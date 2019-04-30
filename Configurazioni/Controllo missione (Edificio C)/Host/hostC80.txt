@@ -1,0 +1,13 @@
+#Configuro gli 80 host presenti al II°Piano in Controllo missione (Edificio C)
+ip 192.168.4.85/24 192.168.4.254
+ip dns 192.168.4.2
+ip 192.168.4.86/24 192.168.4.254
+ip dns 192.168.4.2
+...
+...
+ip 192.168.4.164/24 192.168.4.254
+ip dns 192.168.4.2
+ip 192.168.4.165/24 192.168.4.254
+ip dns 192.168.4.2
+
+save

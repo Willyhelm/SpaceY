@@ -1,0 +1,22 @@
+$TTL	86400
+@	IN	SOA	dns.edificioC.SpaceY.it.	guglielmo_sisti.SpaceY.it	(
+				2019040405	; Serial
+				108000		; Refresh
+				3600		; Retry
+				604800		; Expire
+				86400	)	; Minimum
+
+
+	IN 	NS	dns.edificioC.SpaceY.it.
+	IN	MX	50	mail.SpaceY.it.
+
+
+2	IN	PTR	app.edificioB.SpaceY.it
+
+
+254	IN	PTR	routerB.edificioB.SpaceY.it
+
+
+5	IN	PTR	hostB1.edificioB.SpaceY.it
+75	IN	PTR	hostB170.edificioB.SpaceY.it
+125	IN	PTR	hostB120.edificioB.SpaceY.it

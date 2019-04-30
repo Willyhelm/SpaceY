@@ -1,0 +1,5 @@
+#DIRECTORY = /etc/host.deny
+
+ALL:ALL: spawn /bin/date %c >> /var/log/access_deny.log
+
+//la direttiva spawn permette di eseguire comandi da shell qualora una richiesta entrante soddisfa la regola ed in questo caso va a scrivere su un file di log i tentativi di accesso non permessi

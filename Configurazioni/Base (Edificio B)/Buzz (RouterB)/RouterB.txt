@@ -1,0 +1,63 @@
+#Configurazione interfacce
+#Interfaccia interna
+
+conf t
+interface fa0/0
+ip address 192.168.2.254 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/0
+router ospf 1
+network 192.168.2.0 0.0.0.255 area 2
+end
+
+#interfaccia verso Mars (RouterDMZ) 
+conf t
+interface fa0/1
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/1
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 1
+end
+
+#interfaccia verso Dawn (RouterD) 
+conf t
+interface fa0/2
+ip address 192.168.13.23 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/2
+router ospf 1
+network 192.168.13.0 0.0.0.255 area 0
+end
+
+#interfaccia verso Cristoforetti (routerC)
+conf t
+interface fa0/3
+ip address 192.168.14.24 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/3
+router ospf 1
+network 192.168.14.0 0.0.0.255 area 0
+end
+
+#interfaccia verso Armstrong (routerA)
+conf t
+interface fa0/4
+ip address 192.168.15.25 255.255.255.0
+no shutdown
+
+conf t
+interface fa0/4
+router ospf 1
+network 192.168.15.0 0.0.0.255 area 0
+end
+
+wr mem

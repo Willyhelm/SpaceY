@@ -1,0 +1,10 @@
+$TTL 1D
+@	IN	SOA	@	root (
+				2019040305	; Serial
+				108000		; Refresh
+				3600		; Retry
+				604800		; Expire
+				86400 )		; Minimum
+
+	IN	NS	localhost.
+1	IN	PTR	localhost.
