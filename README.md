@@ -1,9 +1,7 @@
 # SpaceY
-[ITA]Progetto per Reti di Calcolatori: Protocolli
-
+[ITA]
 Progettazione e sviluppo di una rete aziendale
 
 
-[ENG]Computer Networks: Protocols project
-
+[ENG]
 Design and development of a company network
